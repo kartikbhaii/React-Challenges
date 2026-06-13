@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Challenge Solution</title>
+  </head>
+ <body>
+    
+  <div class="js-container"></div>
+
+
+<!-- including DayJS external library  -->
+  <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    console.log(dayjs().format('MMMM D'))
+   
+
+
+  const container = document.querySelector(".js-container");
+  const root = ReactDOM.createRoot(container);
+  root.render(div);
+
+  </script>
+
+
+</body>
+</html>

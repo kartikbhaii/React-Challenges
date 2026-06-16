@@ -16,22 +16,17 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
-        function Clicked() {
-            return (
-                console.log("clicked")
-            )
-        }
-
-
         function App() {
+            function increaseCount() {
+                console.log("clicked")
+            }
             return (
                 <>
-                    <button onClick={Clicked}>Clicked 0 times</button>
+                    <button onClick={increaseCount}>Clicked 0 times</button>
 
                 </>
             )
         }
-
 
 
 

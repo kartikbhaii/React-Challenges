@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            padding: 10px 15px;
+            margin-bottom: 15px;
+        }
+
+        .login-signup-button {
+            padding: 10px 15px;
+            background-color: rgb(0, 123, 255);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+
+
+        function App() {
+            const [count, setCount] = React.useState(0)
+            const buttonClickRef = React.useRef(null);
+
+            function addCount() {
+                setCount(count + 1)
+            }
+
+            function resetCount() {
+                setCount(0)
+            }
+
+            function autoClick() {
+                setInterval(() => {
+                    buttonClickRef.current.click()
+                }, 1000);
+            }
+
+
+
+            return (
+                <div>
+                    <button
+                        onClick={addCount}
+                        ref={buttonClickRef}
+                    >
+                        Clicked {count} {count === 1 ? 'time' : 'times'}
+                    </button>
+                    <button onClick={resetCount}>Reset</button>
+                    <button onClick={autoClick}>Auto Click</button>
+                </div>
+            )
+
+        }
+
+
+
+
+        const container = document.querySelector(".js-container");
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+
+</body>
+
+</html>

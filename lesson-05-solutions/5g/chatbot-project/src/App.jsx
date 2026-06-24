@@ -12,9 +12,11 @@ function App() {
   useEffect(() => {
     Chatbot.addResponses({
       'goodbye': 'Goodbye. Have a great day!',
+      'bye': 'Goodbye. Have a great day!',
       'give me a unique id': function() {
         return `Sure! Here's a unique ID: ${crypto.randomUUID()}`;
       }
+      
     });
   }, [])
 

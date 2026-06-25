@@ -13,7 +13,9 @@ function App() {
       {/* this 'index' is same as ' path="/" ' both used for index/home route */}
       <Route path="checkout" element={<CheckoutPage />} />
       <Route path="orders" element={<OrdersPage />} />
-      <Route path="tracking" element={<TrackingPage />} />
+      
+      <Route path="tracking" element={<TrackingPage />} /> 
+      
     </Routes>
   );
 }

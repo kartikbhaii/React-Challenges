@@ -3,7 +3,7 @@ import logoWhite from "../assets/images/logo-white.png"
 import mobileLogoWhite from "../assets/images/mobile-logo-white.png"
 import searchIcon from "../assets/icons/search-icon.png"
 import cartIcon from "../assets/icons/cart-icon.png"
-import "./header.css"
+import "./Header.css"
 
 export function Header() {
   return (

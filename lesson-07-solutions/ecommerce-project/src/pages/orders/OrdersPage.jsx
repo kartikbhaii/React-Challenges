@@ -11,9 +11,13 @@ export function OrdersPage({ cart }) {
 
   // making request to the backend using : useEffect(() => {})
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      setOrders(response.data);
-    });
+    const fetchOrderData = async () => {
+      const response = await axios.get("/api/orders?expand=products")
+      setOrders(response.data)
+
+    }
+    
+    fetchOrderData()
   }, []);
 
   return (

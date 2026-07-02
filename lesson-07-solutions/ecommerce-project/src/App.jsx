@@ -28,7 +28,7 @@ function App() {
       {/* this 'index' is same as ' path="/" ' both used for index/home route */}
       <Route path="checkout" element={<CheckoutPage cart={cart} />} />
       <Route path="orders" element={<OrdersPage cart={cart} />} />
-      <Route path="tracking" element={<TrackingPage cart={cart} />} />
+      <Route path="tracking/:orderId/:productId" element={<TrackingPage cart={cart} />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

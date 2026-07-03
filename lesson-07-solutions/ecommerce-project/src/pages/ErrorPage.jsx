@@ -1,10 +1,10 @@
 import { Header } from "../components/Header";
 import "./ErrorPage.css";
 
-export function ErrorPage() {
+export function ErrorPage({ cart }) {
     return (
         <>
-        <Header />
+        <Header cart={cart}/>
         <div className="notfound">
             <div className="stars"></div>
 

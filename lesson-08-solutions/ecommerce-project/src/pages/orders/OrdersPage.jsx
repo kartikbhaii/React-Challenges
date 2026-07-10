@@ -5,7 +5,7 @@ import { OrdersGrid } from "./OrdersGrid";
 
 import "./OrdersPage.css";
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
 
   // making request to the backend using : useEffect(() => {})
@@ -13,7 +13,6 @@ export function OrdersPage({ cart }) {
     const fetchOrderData = async () => {
       const response = await axios.get("/api/orders?expand=products")
       setOrders(response.data)
-
     }
     
     fetchOrderData()
@@ -26,7 +25,7 @@ export function OrdersPage({ cart }) {
       <Header cart={cart} />
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
-        < OrdersGrid orders={orders} />
+        <OrdersGrid orders={orders} loadCart={loadCart} />
         
       </div>
     </>

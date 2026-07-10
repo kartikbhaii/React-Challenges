@@ -1,4 +1,5 @@
 import axios from "axios";
+window.axios = axios;
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { ProductsGrid } from "./ProductsGrid";

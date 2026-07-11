@@ -1,6 +1,15 @@
+import axios from "axios";
 import { formatMoney } from "../../utils/money"
+import { useState } from "react"
 
-export function CartItemDetails({ cartItem, deleteCartItem, updateCartItem  }) {
+export function CartItemDetails({ cartItem, loadCart }) {
+    const [update, setUpdate] = useState(false)
+
+
+    const deleteCartItem = async () => {
+        await axios.delete(`/api/cart-items/${cartItem.productId}`)
+        await loadCart();
+    }
 
 
     return (
@@ -16,19 +25,29 @@ export function CartItemDetails({ cartItem, deleteCartItem, updateCartItem  }) {
                     {formatMoney(cartItem.product?.priceCents ?? 0)}
                 </div>
                 <div className="product-quantity">
+
                     <span>
-                        Quantity: <input className="quantity-textbox" type="text" />
-                        Quantity:{" "}
-                        <span className="quantity-label">
-                            {cartItem.quantity}
-                        </span>
+                        {update ? (
+                            <span>
+                                Quantity: <input className="quantity-textbox" type="text" />
+                            </span>
+                        ) : (
+                            <span>
+                                Quantity:{" "}
+                                <span className="quantity-label">
+                                    {cartItem.quantity}
+                                </span>
+                            </span>
+                        )}
                     </span>
                     <span className="update-quantity-link link-primary"
-                    onClick={updateCartItem}>
+                        onClick={() => {
+                            setUpdate(!update);
+                        }}>
                         Update
                     </span>
                     <span className="delete-quantity-link link-primary"
-                    onClick={deleteCartItem}>
+                        onClick={deleteCartItem}>
                         Delete
                     </span>
                 </div>

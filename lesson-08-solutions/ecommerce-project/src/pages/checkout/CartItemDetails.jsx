@@ -17,6 +17,7 @@ export function CartItemDetails({ cartItem, deleteCartItem, updateCartItem  }) {
                 </div>
                 <div className="product-quantity">
                     <span>
+                        Quantity: <input className="quantity-textbox" type="text" />
                         Quantity:{" "}
                         <span className="quantity-label">
                             {cartItem.quantity}

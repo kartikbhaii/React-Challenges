@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate, useSearchParams } from "react-router";
 import logoWhite from "../assets/images/logo-white.png"
 import mobileLogoWhite from "../assets/images/mobile-logo-white.png"
 import searchIcon from "../assets/icons/search-icon.png"
@@ -8,7 +8,9 @@ import "./Header.css"
 
 export function Header({cart = []}) {
   const navigate = useNavigate()
-  const [search, setSearch] = useState('')
+  const [searchParams] = useSearchParams()
+  const searchFromUrl = searchParams.get("search")
+  const [search, setSearch] = useState(searchFromUrl ? searchFromUrl : '')
 
   const updateSearchInput = (event) => {
     setSearch(event.target.value);

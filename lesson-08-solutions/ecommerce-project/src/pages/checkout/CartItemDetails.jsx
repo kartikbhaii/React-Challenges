@@ -4,6 +4,7 @@ import { useState } from "react"
 
 export function CartItemDetails({ cartItem, loadCart }) {
     const [update, setUpdate] = useState(false)
+    const [quantity, setQuantity] = useState(cartItem.quantity)
 
 
     const deleteCartItem = async () => {
@@ -29,7 +30,14 @@ export function CartItemDetails({ cartItem, loadCart }) {
                     <span>
                         {update ? (
                             <span>
-                                Quantity: <input className="quantity-textbox" type="text" />
+                                Quantity: <input 
+                                className="quantity-textbox" 
+                                type="text"
+                                value={quantity}
+                                onChange={(event)=>{
+                                    setQuantity(event.target.value)
+                                }} 
+                                />
                             </span>
                         ) : (
                             <span>
